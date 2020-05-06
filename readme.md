@@ -1,4 +1,4 @@
-# Reddit Imager
+# Reddit Imager [Work in Progress]
 
 ## An electron.js based dektop app for downloading images in batch from various subreddits
 
