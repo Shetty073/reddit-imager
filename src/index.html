@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Reddit Imager</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://www.reddit.com/; style-src 'self' 'unsafe-inline';">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="../node_modules/material-design-icons/iconfont/material-icons.css">
+  <script src="js/materialize.min.js"></script>
+  <script defer src="render.js"></script>
+</head>
+
+<body>
+  <!-- Custom title bar -->
+  <div id="title-bar">
+    <span id="title">Reddit Imager</span>
+    <div id="title-bar-btns">
+      <a class="waves-effect waves-purple white btn-flat title-bar-btns" id="min-btn">-</a>
+      <a class="waves-effect waves-purple white btn-flat title-bar-btns" id="min-max-btn">+</a>
+      <a class="waves-effect waves-purple white btn-flat title-bar-btns" id="close-btn">x</a>
+    </div>
+  </div>
+
+  <!-- App content -->
+  <div class="row app">
+    <!-- Nav panel -->
+    <div class="col s12 m3 l3 nav-panel">
+      <div class="container nav-btns-container">
+        <div class="row left-align btn-icon active">
+          <i class="material-icons prefix nav-icons nav-icon-and-btn">cloud_download</i>
+          <a class="nav-btns nav-icon-and-btn" id="downlloadpage-btn">Download</a>
+        </div>
+        <div class="row left-align btn-icon">
+          <i class="material-icons prefix nav-icons nav-icon-and-btn">settings</i>
+          <a class="nav-btns nav-icon-and-btn" id="aboutpage-btn">Settings</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content panel -->
+    <div class="col s12 m9 l9 content-panel valign-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="input-field col s12 url-input-div">
+            <i class="material-icons prefix">link</i>
+            <input type="text" id="subreddit-url-input" class="autocomplete">
+            <label for="subreddit-url-input">Subreddit URL</label>
+          </div>
+        </div>
+        <div class="row folder-select-div">
+          <div class="file-field input-field">
+            <div class="btn browse-btn" id="browse-btn">
+              <span>Browse..</span>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path" type="text" id="browse-folder-input" placeholder="Select the folder to download the images">
+            </div>
+          </div>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+          <div class="col s1">
+            <span class="processing-indicator-span" id="processing-indicator">
+              <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </div>
+          <div class="col s3">
+            <span class="progress-text-span" id="progress-text">
+              processing
+            </span>
+          </div>
+          <div class="col s8">
+            <div class="progress" id="progress-bar">
+              <div class="determinate" id="progress-bar-width" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <div class="btn start-btn" id="start-btn">
+              <span>Start</span>
+            </div>
+          </div>
+          <div class="col s6">
+            <div class="btn cancel-btn" id="cancel-btn">
+              <span>Reset</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

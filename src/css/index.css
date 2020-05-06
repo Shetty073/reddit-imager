@@ -1,0 +1,251 @@
+/* Reset body default margin and padding */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* whole app */
+.app {
+  margin: 0;
+}
+
+/* Custom title bar */
+#title-bar {
+  -webkit-app-region: drag;
+  background-color: blueviolet;
+  height: 30px;
+  padding: 0;
+}
+
+#title {
+  padding-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  text-align: left;
+  color: aliceblue;
+  font-size: 18px;
+  font-weight: lighter;
+
+}
+
+#title-bar-btns {
+  -webkit-app-region: no-drag;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+.title-bar-btns {
+  margin: 0;
+  height: 30px !important;
+  color: blueviolet;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  padding-bottom: 10px !important;
+}
+
+.title-bar-btns:hover {
+  color: blueviolet;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.title-bar-btns:hover#close-btn {
+  color: white;
+  background-color: red !important;
+}
+
+
+
+/* Navigation panel */
+.nav-panel {
+  background-color: blueviolet;
+  min-height: calc(100vh - 30px) !important;
+}
+
+.nav-btns-container {
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.nav-btns {
+  font-size: 30px;
+  color: lightgray;
+  text-decoration: none;
+  border-radius: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+i.nav-icons {
+  color: lightgray;
+  font-size: 20px;
+
+}
+
+div.btn-icon:hover .nav-icon-and-btn{
+  color: white;
+  cursor: pointer;
+}
+
+div.btn-icon.active .nav-icon-and-btn{
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+/* Content panel */
+.content-panel {
+  min-height: calc(100vh - 30px) !important;
+}
+
+.content-panel-container {
+  margin-top: 40px !important;
+  margin-left: 10px !important;
+}
+
+/* content-input */
+.url-input-div {
+  padding: 0 !important;
+}
+
+/* label color */
+.input-field label {
+  color: black;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: blueviolet !important;
+}
+.input-field input[type=number]:focus + label {
+  color: blueviolet !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid blueviolet !important;
+  box-shadow: 0 1px 0 0 blueviolet !important;
+}
+.input-field input[type=number]:focus {
+  border-bottom: 1px solid blueviolet !important;
+  box-shadow: 0 1px 0 0 blueviolet !important;
+}
+
+
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid blueviolet !important;
+  box-shadow: 0 1px 0 0 blueviolet !important;
+}
+.input-field input[type=number].valid {
+  border-bottom: 1px solid blueviolet !important;
+  box-shadow: 0 1px 0 0 blueviolet !important;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
+.input-field input[type=number].invalid {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: blueviolet;
+}
+
+.browse-btn {
+  background-color: blueviolet;
+  color: white;
+  border-radius: 10px;
+}
+
+.browse-btn:hover {
+  background-color: rgba(138, 43, 226, 0.8);
+}
+
+.folder-select-div {
+  margin-bottom: 0 !important;
+}
+
+.blueviolet-checkbox:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid blueviolet !important; /* You need to change the colour here */
+  border-bottom: 2px solid blueviolet !important; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+.checkbox-p {
+  margin-top: 25px !important;
+}
+
+/* progress-bar */
+.progress {
+  background-color: rgba(138, 44, 226, 0.1);
+}
+
+.determinate {
+  background-color: blueviolet !important;
+}
+
+/* spinner */
+.spinner-layer {
+  border-color: blueviolet !important;
+}
+
+.preloader-wrapper.small {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.start-btn {
+  margin-left: 100px;
+  border-radius: 10px;
+  background-color: white;
+  color: blueviolet;
+}
+
+.start-btn:hover {
+  margin-left: 100px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: white;
+}
+
+.cancel-btn {
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: white;
+}
+
+.cancel-btn:hover {
+  border-radius: 10px;
+  background-color: rgba(138, 43, 226, 0.8);
+  color: white;
+}
