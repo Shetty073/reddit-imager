@@ -1,7 +1,100 @@
+/* css variables */
+:root {
+  --white-color: white;
+  --lightgray-color: lightgray;
+  --aliceblue-color: aliceblue;
+  --blueviolet-color: blueviolet;
+  --blueviolet-alpha-point-eight-color: rgba(138, 43, 226, 0.8);
+  --blueviolet-alpha-point-one-color: rgba(138, 43, 226, 0.1);
+  --white-alpha-point-nine-color: rgba(255, 255, 255, 0.9);
+  --black-color: black;
+  --red-color: red;
+  --darkerblueviolet-color: rgb(112, 69, 175);
+  --darkerblueviolet-alpha-point-eight-color: rgba(112, 69, 175, 0.8);
+  --darkerblueviolet-alpha-point-one-color: rgba(112, 69, 175, 0.1);
+  --darkerblueviolet-alpha-point-three-color: rgba(112, 69, 175, 0.3);
+  --darkerbluegray-color: #182952;
+}
+
+/* Light theme */
+.light {
+  /* navbar and titlebar */
+  --body-bg: var(--white-color);
+  --body-color: var(--black-color);
+  --nav-titlebar-bg: var(--blueviolet-color);
+  --title-text: var(--aliceblue-color);
+  --titlebar-btns: var(--blueviolet-color);
+  --titlebar-btns-hover: var(--white-alpha-point-nine-color);
+  --titlebar-close-btn-hover-color: var(--white-color);
+  --titlebar-close-btn-hover-bg: var(--red-color);
+  --nav-text-icon: var(--lightgray-color);
+  --nav-text-icon-active: var(--white-color);
+  --nav-text-text-icon-non-active-hover: var(--nav-text-icon-active);
+
+  /* content panel */
+  --input-field-label: var(--black-color);
+  --input-field-boxshadow-border: var(--blueviolet-color);
+  --browse-btn: var(--white-color);
+  --browse-btn-bg: var(--blueviolet-color);
+  --browse-btn-bg-hover: var(--blueviolet-alpha-point-eight-color);
+  --progress-bg: var(--blueviolet-alpha-point-one-color);
+  --progress-determinate-bg: var(--blueviolet-color);
+  --spinner-layer-border: var(--blueviolet-color);
+  --start-btn: var(--blueviolet-color);
+  --start-btn-bg: var(--white-color);
+  --start-btn-hover: var(--white-color);
+  --start-btn-bg-hover: var(--blueviolet-color);
+  --cancel-btn: var(--white-color);
+  --cancel-btn-bg: var(--blueviolet-color);
+  --cancel-btn-hover: var(--white-color);
+  --cancel-btn-bg-hover: var(--blueviolet-alpha-point-eight-color);
+}
+
+/* dark theme */
+.dark {
+  /* navbar and titlebar */
+  --body-bg: var(--darkerbluegray-color);
+  --body-color: var(--white-color);
+  --nav-titlebar-bg: var(--darkerblueviolet-color);
+  --title-text: var(--aliceblue-color);
+  --titlebar-btns: var(--darkerblueviolet-color);
+  --titlebar-btns-hover: var(--white-alpha-point-nine-color);
+  --titlebar-close-btn-hover-color: var(--white-color);
+  --titlebar-close-btn-hover-bg: var(--red-color);
+  --nav-text-icon: var(--lightgray-color);
+  --nav-text-icon-active: var(--white-color);
+  --nav-text-text-icon-non-active-hover: var(--nav-text-icon-active);
+
+  /* content panel */
+  --input-field-label: var(--white-color);
+  --input-field-boxshadow-border: var(--darkerblueviolet-color);
+  --browse-btn: var(--white-color);
+  --browse-btn-bg: var(--darkerblueviolet-color);
+  --browse-btn-bg-hover: var(--darkerblueviolet-alpha-point-eight-color);
+  --progress-bg: var(--darkerblueviolet-alpha-point-three-color);
+  --progress-determinate-bg: var(--darkerblueviolet-color);
+  --spinner-layer-border: var(--darkerblueviolet-color);
+  --start-btn: var(--white-color);
+  --start-btn-bg: var(--darkerblueviolet-color);
+  --start-btn-hover: var(--white-color);
+  --start-btn-bg-hover: var(--darkerblueviolet-alpha-point-eight-color);
+  --cancel-btn: var(--white-color);
+  --cancel-btn-bg: var(--darkerblueviolet-color);
+  --cancel-btn-hover: var(--white-color);
+  --cancel-btn-bg-hover: var(--darkerblueviolet-alpha-point-eight-color);
+}
+
+
+
+
 /* Reset body default margin and padding */
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--body-bg);
+  color: var(--body-color);
+  transition: color 1000ms ease-in-out, background 500ms ease-in-out;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* whole app */
@@ -12,55 +105,62 @@ body {
 /* Custom title bar */
 #title-bar {
   -webkit-app-region: drag;
-  background-color: blueviolet;
+  background-color: var(--nav-titlebar-bg);
   height: 30px;
   padding: 0;
+  transition: background 500ms ease-in-out;
+  display: flex;
+}
+
+#logo {
+  height: 30px !important;
+  width: 30px !important;
 }
 
 #title {
-  padding-left: 10px;
-  padding-top: 6px;
-  padding-bottom: 5px;
+  padding-left: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   text-align: left;
-  color: aliceblue;
-  font-size: 18px;
+  color: var(--title-text);
+  font-size: 15px;
   font-weight: lighter;
-
+  transition: color 1000ms ease-in-out;
 }
 
 #title-bar-btns {
   -webkit-app-region: no-drag;
-  float: right;
-  margin: 0;
+  /* float: right; */
+  margin-left: auto;
   padding: 0;
 }
 
 .title-bar-btns {
   margin: 0;
   height: 30px !important;
-  color: blueviolet;
+  color: var(--titlebar-btns) !important;
   font-size: 15px;
   text-align: center;
   vertical-align: middle;
   padding-bottom: 10px !important;
+  transition: color 1000ms ease-in-out, background 500ms ease-in-out;
 }
 
 .title-bar-btns:hover {
-  color: blueviolet;
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-color: var(--titlebar-btns-hover) !important;
 }
 
 .title-bar-btns:hover#close-btn {
-  color: white;
-  background-color: red !important;
+  color: var(--titlebar-close-btn-hover-color) !important;
+  background-color: var(--titlebar-close-btn-hover-bg) !important;
 }
-
 
 
 /* Navigation panel */
 .nav-panel {
-  background-color: blueviolet;
+  background-color: var(--nav-titlebar-bg);
   min-height: calc(100vh - 30px) !important;
+  transition: color 1000ms ease-in-out, background 500ms ease-in-out;
 }
 
 .nav-btns-container {
@@ -70,7 +170,7 @@ body {
 
 .nav-btns {
   font-size: 30px;
-  color: lightgray;
+  color: var(--nav-text-icon);
   text-decoration: none;
   border-radius: 10px;
   padding-left: 4px;
@@ -78,31 +178,28 @@ body {
 }
 
 i.nav-icons {
-  color: lightgray;
+  color: var(--nav-text-icon);
   font-size: 20px;
 
 }
 
-div.btn-icon:hover .nav-icon-and-btn{
-  color: white;
+div.btn-icon:hover .nav-icon-and-btn {
+  color: var(--nav-text-text-icon-non-active-hover);
   cursor: pointer;
 }
 
-div.btn-icon.active .nav-icon-and-btn{
-  color: white;
+div.btn-icon.active .nav-icon-and-btn {
+  color: var(--nav-text-icon-active);
 }
-
-
-
-
-
 
 
 
 
 /* Content panel */
+/* Downloader page */
 .content-panel {
   min-height: calc(100vh - 30px) !important;
+  transition: color 1000ms ease-in-out, background 500ms ease-in-out;
 }
 
 .content-panel-container {
@@ -111,112 +208,73 @@ div.btn-icon.active .nav-icon-and-btn{
 }
 
 /* content-input */
+input {
+  color: var(--body-color);
+}
+
+input:focus {
+  color: var(--body-color);
+}
+
 .url-input-div {
   padding: 0 !important;
 }
 
 /* label color */
 .input-field label {
-  color: black;
+  color: var(--input-field-label);
 }
 
 /* label focus color */
-.input-field input[type=text]:focus + label {
-  color: blueviolet !important;
-}
-.input-field input[type=number]:focus + label {
-  color: blueviolet !important;
+.input-field input[type=text]:focus+label {
+  color: var(--input-field-boxshadow-border) !important;
 }
 
 /* label underline focus color */
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid blueviolet !important;
-  box-shadow: 0 1px 0 0 blueviolet !important;
-}
-.input-field input[type=number]:focus {
-  border-bottom: 1px solid blueviolet !important;
-  box-shadow: 0 1px 0 0 blueviolet !important;
+  border-bottom: 1px solid var(--input-field-boxshadow-border) !important;
+  box-shadow: 0 1px 0 0 var(--input-field-boxshadow-border) !important;
 }
 
 
 /* valid color */
 .input-field input[type=text].valid {
-  border-bottom: 1px solid blueviolet !important;
-  box-shadow: 0 1px 0 0 blueviolet !important;
-}
-.input-field input[type=number].valid {
-  border-bottom: 1px solid blueviolet !important;
-  box-shadow: 0 1px 0 0 blueviolet !important;
-}
-
-/* invalid color */
-.input-field input[type=text].invalid {
-  border-bottom: 1px solid red;
-  box-shadow: 0 1px 0 0 red;
-}
-.input-field input[type=number].invalid {
-  border-bottom: 1px solid red;
-  box-shadow: 0 1px 0 0 red;
+  border-bottom: 1px solid var(--input-field-boxshadow-border) !important;
+  box-shadow: 0 1px 0 0 var(--input-field-boxshadow-border) !important;
 }
 
 /* icon prefix focus color */
 .input-field .prefix.active {
-  color: blueviolet;
+  color: var(--input-field-boxshadow-border);
 }
 
 .browse-btn {
-  background-color: blueviolet;
-  color: white;
+  background-color: var(--browse-btn-bg);
+  color: var(--browse-btn);
   border-radius: 10px;
 }
 
 .browse-btn:hover {
-  background-color: rgba(138, 43, 226, 0.8);
+  background-color: var(--browse-btn-bg-hover);
 }
 
 .folder-select-div {
   margin-bottom: 0 !important;
 }
 
-.blueviolet-checkbox:checked + label:before {
-  top: -4px;
-  left: -3px;
-  width: 12px;
-  height: 22px;
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid blueviolet !important; /* You need to change the colour here */
-  border-bottom: 2px solid blueviolet !important; /* And here */
-  -webkit-transform: rotate(40deg);
-  -moz-transform: rotate(40deg);
-  -ms-transform: rotate(40deg);
-  -o-transform: rotate(40deg);
-  transform: rotate(40deg);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  -o-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-}
-
-.checkbox-p {
-  margin-top: 25px !important;
-}
 
 /* progress-bar */
 .progress {
-  background-color: rgba(138, 44, 226, 0.1);
+  background-color: var(--progress-bg);
 }
 
 .determinate {
-  background-color: blueviolet !important;
+  background-color: var(--progress-determinate-bg) !important;
 }
 
 /* spinner */
 .spinner-layer {
-  border-color: blueviolet !important;
+  border-color: var(--spinner-layer-border) !important;
 }
 
 .preloader-wrapper.small {
@@ -227,25 +285,48 @@ div.btn-icon.active .nav-icon-and-btn{
 .start-btn {
   margin-left: 100px;
   border-radius: 10px;
-  background-color: white;
-  color: blueviolet;
+  background-color: var(--start-btn-bg);
+  color: var(--start-btn);
 }
 
 .start-btn:hover {
   margin-left: 100px;
   border-radius: 10px;
-  background-color: blueviolet;
-  color: white;
+  background-color: var(--start-btn-bg-hover);
+  color: var(--start-btn-hover);
 }
 
 .cancel-btn {
   border-radius: 10px;
-  background-color: blueviolet;
-  color: white;
+  background-color: var(--cancel-btn-bg);
+  color: var(--cancel-btn);
 }
 
 .cancel-btn:hover {
   border-radius: 10px;
-  background-color: rgba(138, 43, 226, 0.8);
-  color: white;
+  background-color: var(--cancel-btn-bg-hover);
+  color: var(--cancel-btn-hover);
+}
+
+
+/* Settings page */
+#settings-page {
+  margin-top: 30px;
+  color: var(--body-color);
+}
+
+#theme-select-label {
+  color: var(--body-color);
+}
+
+.switch label .lever:after {
+  background-color: var(--progress-determinate-bg) !important;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: var(--progress-determinate-bg) !important;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: var(--progress-bg) !important;
 }

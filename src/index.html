@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Reddit Imager</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://www.reddit.com/; style-src 'self' 'unsafe-inline';">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https://www.reddit.com/; style-src 'self' 'unsafe-inline';">
   <link rel="stylesheet" href="css/materialize.min.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="../node_modules/material-design-icons/iconfont/material-icons.css">
@@ -12,10 +13,11 @@
   <script defer src="render.js"></script>
 </head>
 
-<body>
+<body class="light">
   <!-- Custom title bar -->
   <div id="title-bar">
-    <span id="title">Reddit Imager</span>
+    <img src="icon/title_bar_icon.png" alt="brand" id="logo" />
+    <span id="title">Reddit imager</span>
     <div id="title-bar-btns">
       <a class="waves-effect waves-purple white btn-flat title-bar-btns" id="min-btn">-</a>
       <a class="waves-effect waves-purple white btn-flat title-bar-btns" id="min-max-btn">+</a>
@@ -28,11 +30,11 @@
     <!-- Nav panel -->
     <div class="col s12 m3 l3 nav-panel">
       <div class="container nav-btns-container">
-        <div class="row left-align btn-icon active">
+        <div class="row left-align btn-icon active" id="go-to-downloader">
           <i class="material-icons prefix nav-icons nav-icon-and-btn">cloud_download</i>
           <a class="nav-btns nav-icon-and-btn" id="downlloadpage-btn">Download</a>
         </div>
-        <div class="row left-align btn-icon">
+        <div class="row left-align btn-icon" id="go-to-settings">
           <i class="material-icons prefix nav-icons nav-icon-and-btn">settings</i>
           <a class="nav-btns nav-icon-and-btn" id="aboutpage-btn">Settings</a>
         </div>
@@ -41,7 +43,8 @@
 
     <!-- Content panel -->
     <div class="col s12 m9 l9 content-panel valign-wrapper">
-      <div class="container">
+      <!-- Downloader page (the home page of the app) -->
+      <div class="container" id="downloader-page">
         <div class="row">
           <div class="input-field col s12 url-input-div">
             <i class="material-icons prefix">link</i>
@@ -55,14 +58,15 @@
               <span>Browse..</span>
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path" type="text" id="browse-folder-input" placeholder="Select the folder to download the images">
+              <input class="file-path" type="text" id="browse-folder-input"
+                placeholder="Select the folder to download the images">
             </div>
           </div>
         </div>
         <div class="row"></div>
         <div class="row">
           <div class="col s1">
-            <span class="processing-indicator-span" id="processing-indicator">
+            <span class="processing-indicator-span hide" id="processing-indicator">
               <div class="preloader-wrapper small active">
                 <div class="spinner-layer spinner-blue-only">
                   <div class="circle-clipper left">
@@ -79,12 +83,12 @@
             </span>
           </div>
           <div class="col s3">
-            <span class="progress-text-span" id="progress-text">
+            <span class="progress-text-span hide" id="progress-text">
               processing
             </span>
           </div>
           <div class="col s8">
-            <div class="progress" id="progress-bar">
+            <div class="progress hide" id="progress-bar">
               <div class="determinate" id="progress-bar-width" style="width: 0%"></div>
             </div>
           </div>
@@ -99,6 +103,21 @@
             <div class="btn cancel-btn" id="cancel-btn">
               <span>Reset</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings page (hidden by default) -->
+      <div class="container hide" id="settings-page">
+        <div class="row">
+          <div class="col s9">Dark mode </div>
+          <div class="switch col s3">
+            <label id="theme-select-label">
+              Off
+              <input type="checkbox" id="theme-select-btn">
+              <span class="lever"></span>
+              On
+            </label>
           </div>
         </div>
       </div>

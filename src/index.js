@@ -5,20 +5,21 @@ const { app, BrowserWindow, dialog } = require("electron");
 function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    minWidth: 800,
+    minHeight: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      devTools: false
     },
     frame: false,
-    maximizable: true
+    maximizable: true,
+    icon: __dirname + "/icon/icon.png"
   });
-
   // and load the index.html of the app.
   win.loadFile('src/index.html');
 
   // Open the DevTools.
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
 
   // remove the menubar
